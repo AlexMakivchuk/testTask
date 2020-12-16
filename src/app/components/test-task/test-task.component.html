@@ -1,0 +1,60 @@
+<div style="text-align: center">
+  <form action="" class="example-form" [formGroup]="form">
+  <h1>Form Title</h1>
+    <div>
+      <mat-form-field class="ml-10">
+        <mat-label>Input Label</mat-label>
+        <input matInput class = "formInput" formControlName = 'firstInput' [errorStateMatcher]="matcher">
+        <button mat-button *ngIf="form.value.firstInput" matSuffix mat-icon-button aria-label="Clear" (click)="form.patchValue({firstInput: ''})">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+      <mat-form-field class="ml-10">
+        <mat-label>Input Label</mat-label>
+        <input matInput formControlName = 'secondInput' [errorStateMatcher]="matcher">
+        <button mat-button *ngIf="form.value.secondInput" matSuffix mat-icon-button aria-label="Clear" (click)="form.patchValue({secondInput: ''})">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    <div style="text-align: center">
+      <h3  *ngIf="checkRadio">please check radio buttons</h3>
+      <span>
+        <mat-radio-group [disabled]="form.value.firstInput === ''" formControlName="firstRadioButton" aria-label="Experience with Angular 10-11">
+          <mat-radio-button value="yes">Yes</mat-radio-button>
+          <mat-radio-button value="no">No</mat-radio-button>
+        </mat-radio-group>
+      </span>
+      <span>
+        <mat-radio-group [disabled]="form.value.secondInput === ''" formControlName="secondRadioButton" class="ml-10" aria-label="Estimate for the task 4h">
+          <mat-radio-button value="no">No</mat-radio-button>
+          <mat-radio-button value="yes">Yes</mat-radio-button>
+        </mat-radio-group>
+      </span>
+    </div>
+    <mat-form-field class="example-full-width">
+      <mat-label>Input Label</mat-label>
+      <input matInput formControlName = 'thirdInput' [errorStateMatcher]="matcher">
+      <button mat-button *ngIf="form.value.thirdInput" matSuffix mat-icon-button aria-label="Clear" (click)="form.patchValue({thirdInput: ''})">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Input Label</mat-label>
+      <input matInput formControlName = 'fourthInput' [errorStateMatcher]="matcher">
+      <button mat-button *ngIf="form.value.fourthInput" matSuffix mat-icon-button aria-label="Clear" (click)="form.patchValue({fourthInput: ''})">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Input Label</mat-label>
+      <input matInput formControlName = 'fifthInput' [errorStateMatcher]="matcher" >
+      <button mat-button *ngIf="form.value.fifthInput" matSuffix mat-icon-button aria-label="Clear" (click)="form.patchValue({fifthInput: ''})">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <div class="example-button-row">
+      <button mat-raised-button style="border-radius: 25px" color="primary" (click)="onSubmit()">Next</button>
+    </div>
+  </form>
+</div>
