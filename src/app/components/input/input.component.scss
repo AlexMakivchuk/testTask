@@ -1,0 +1,28 @@
+.example-width {
+  width: 95%;
+  vertical-align: middle;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.example-full-width:focus {
+  border: 1px solid #002afd;
+}
+.input-error{
+  border: 1px solid #ff0101;
+}
+
+::ng-deep{
+  .mat-hint{
+    strong {
+      color: red;
+    }
+  }
+  .mat-form-field-label{
+    text-align: center;
+  }
+  .mat-form-field-underline{
+    display: none;
+  };
+}

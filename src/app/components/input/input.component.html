@@ -1,0 +1,19 @@
+<mat-form-field [ngClass]="{'input-error': hasError && submited}" class="example-width">
+  <mat-label>input label</mat-label>
+  <input  type="email" matInput  [disabled]="disabled" [(ngModel)]="value" placeholder="">
+  <button
+    *ngIf="value"
+    mat-button
+    matSuffix
+    mat-icon-button
+    aria-label="Clear"
+    (click)="value = ''" [disabled]="disabled"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+  <mat-hint class="error" *ngIf="hasError && submited">
+    <strong>Error, required input</strong>
+  </mat-hint>
+</mat-form-field>
+
+<ng-content></ng-content>
