@@ -1,8 +1,8 @@
-<mat-form-field [ngClass]="{'input-error': hasError && submited}" class="example-width">
-  <mat-label>input label</mat-label>
-  <input  type="email" matInput  [disabled]="disabled" [(ngModel)]="value" placeholder="">
+<mat-form-field class="example-width">
+  <mat-label><p>input label</p></mat-label>
+  <input class="input" [ngClass]="{'input-error': hasError && submited}" type="email" matInput  [disabled]="disabled" [(ngModel)]="value" placeholder="">
   <button
-    *ngIf="value"
+    [ngStyle]="value ? {visibility: 'visible'}: {visibility: 'hidden'} "
     mat-button
     matSuffix
     mat-icon-button

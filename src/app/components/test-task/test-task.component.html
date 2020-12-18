@@ -1,6 +1,6 @@
 <div class="main">
-  <form (ngSubmit)="onSubmit()" action="" class="example-form" [formGroup]="form">
-  <h1>Form Title</h1>
+  <form class="example-form" [formGroup]="form">
+  <h2>Form Title</h2>
     <div class="w100">
       <div class="w45"><app-input formControlName = 'firstInput'
                                   [placeholder]="'input label'"
@@ -13,7 +13,11 @@
                                   [submited]="submited"
       ></app-input></div>
     </div>
-    <mat-hint *ngIf="checkRadio"><strong>please check radio buttons</strong></mat-hint>
+    <span class="radio-button-uncheck">
+      <mat-hint [ngStyle]="checkRadio ? {visibility: 'visible'}: {visibility: 'hidden'}">
+        <span class="error">please check radio buttons</span>
+      </mat-hint>
+    </span>
     <div class="w100">
       <div class="w45">
         <div><mat-hint>Experience in Angular 10-11</mat-hint></div>
@@ -39,8 +43,8 @@
                     [hasError] = "form.controls['fifthInput'].hasError('required')"
                     [submited]="submited"
     ></app-input></div>
-    <div>
-      <button mat-raised-button class="next" color="primary">Next</button>
+    <div >
+      <button mat-raised-button (click)="onSubmit()" [disabled]="submited" class="next" color="primary">Next</button>
     </div>
   </form>
 </div>

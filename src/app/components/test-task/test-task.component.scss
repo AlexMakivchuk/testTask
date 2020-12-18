@@ -10,21 +10,32 @@
   display: table-cell;
 }
 .w45{
-  width: 45%;
-  margin-left: 20px;
+  width: 47%;
+  margin-right: 5px;
+  margin-left: 10px;
   float: left;
+  text-align: left;
 }
 .w100{
   width: 100%;
   display: inline-block;
-
 }
-div.main{
+.main{
   text-align: center;
   padding: 5px;
+  margin-left: 40px;
 }
 .next{
   border-radius: 25px
+}
+.mt20{
+  margin-top: 20px;
+}
+.radio-button-uncheck{
+  padding: 5px;
+}
+.error{
+  color: red;
 }
 
 
