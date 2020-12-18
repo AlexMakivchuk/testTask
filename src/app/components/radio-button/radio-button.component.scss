@@ -1,12 +1,25 @@
-mat-radio-button{
-  margin: 5px 60px 5px 5px;
+mat-radio-button {
+  margin: 5px 30px 5px 5px;
 }
-::ng-deep{
-  .mat-radio-inner-circle{
-    border-color: #002afd !important;
-    background-color: #002afd !important;
-  }
-  .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle{
-    border-color: #002afd !important;
+
+::ng-deep {
+  .mat-radio-button.mat-radio-checked {
+    .mat-radio-outer-circle {
+      border-color: #5d5fef !important;
+    }
+
+    .mat-radio-inner-circle {
+      background-color: #5d5fef !important;
+    }
+
+    &.mat-radio-disabled {
+      .mat-radio-outer-circle {
+        border-color: rgba(0, 0, 0, .38) !important;
+      }
+
+      .mat-radio-inner-circle {
+        background-color: rgba(0, 0, 0, .38) !important;
+      }
+    }
   }
 }

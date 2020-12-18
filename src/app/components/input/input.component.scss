@@ -1,47 +1,87 @@
 .example-width {
   vertical-align: middle;
 }
-.input{
-  padding: 25px 20px 5px 5px;
-  border: 1px solid #d9d9d9;
+
+p {
+  color: rgba(38, 50, 56, 0.82);
+  font-size: 18px;
+}
+
+.input {
+  padding: 5px 25px 0 5px;
+  border: 2px solid #d9d9d9;
   border-radius: 4px;
-  height: 35px;
+  height: 56px;
   margin-right: 5px;
-
+  text-shadow: 0 3px 3px rgba(38, 50, 56, 0.32);
+  box-shadow: 0 3px 3px rgba(38, 50, 56, 0.25);
+  background-color: transparent !important;
 }
+
+.double-input {
+  width: 169px !important;
+}
+
+.disabled {
+  background-color: rgba(38, 50, 56, 0.25) !important;
+  color: rgba(38, 50, 56, 1) !important;
+  box-shadow: 0 3px 3px rgba(38, 50, 56, 0.05) !important;
+}
+
 .input:focus {
-  border: 1px solid #002afd;
-}
-.input-error{
-  border: 1px solid #ff0101;
+  border: 2px solid rgba(58, 75, 166, 1);
+  color: #263238;
+
 }
 
-::ng-deep{
-  .mat-hint{
-    strong {
-      color: red;
-    }
+.input-error {
+  border: 2px solid rgba(178, 16, 1, 1);
+}
+
+::ng-deep {
+  .mat-hint > span {
+    top: 1em;
+    color: rgba(178, 16, 1, 1) !important;
+    font-size: 12px;
+    text-shadow: 0 3px 3px rgba(38, 50, 56, 0.32);
   }
-  .mat-form-field-label{
+
+  .mat-form-field-label {
     text-align: center;
-    top: 1.8em !important;
+    top: 1.6em !important;
+    text-shadow: 0 3px 3px rgba(38, 50, 56, 0.32);
   }
-  .mat-form-field-suffix{
-    top: -1.4em;
+
+  .mat-form-field-suffix {
+    top: -1.6em;
     padding-left: 5px;
   }
-  .mat-form-field-underline{
+
+  .mat-form-field-underline {
     display: none;
-  };
-  .mat-form-field{
+  }
+;
+
+  .mat-form-field {
     width: 100%;
   }
-  .mat-form-field-wrapper{
-    padding-bottom: 1em !important;
+
+  .mat-form-field-wrapper {
+    padding-bottom: 10px !important;
   }
-  .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label{
-    margin-left: 10px ;
-    text-align: left ;
+
+  .mat-form-field-infix {
+    border-top: 0 !important;
+  }
+
+  .mat-form-field-appearance-legacy .mat-form-field-infix {
+    padding: 5px;
+  }
+
+  .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    margin-left: 10px;
+    text-align: left;
+    color: rgba(58, 75, 166, 1);
     top: 1em;
   }
 }

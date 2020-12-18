@@ -1,8 +1,18 @@
-<mat-form-field class="example-width">
+<mat-form-field>
   <mat-label><p>input label</p></mat-label>
-  <input class="input" [ngClass]="{'input-error': hasError && submited}" type="email" matInput  [disabled]="disabled" [(ngModel)]="value" placeholder="">
+  <input class="input"
+         autocomplete="off"
+         [ngClass]="{
+          'input-error': hasError && submited,
+          'double-input': inputClass === 'doubleInput',
+          'disabled': disabled
+          }"
+         matInput
+         [disabled]="disabled"
+         [(ngModel)]="value" placeholder="">
   <button
     [ngStyle]="value ? {visibility: 'visible'}: {visibility: 'hidden'} "
+    type="button"
     mat-button
     matSuffix
     mat-icon-button
@@ -12,7 +22,7 @@
     <mat-icon>close</mat-icon>
   </button>
   <mat-hint class="error" *ngIf="hasError && submited">
-    <strong>Error, required input</strong>
+    <span>Error, required input</span>
   </mat-hint>
 </mat-form-field>
 

@@ -1,17 +1,23 @@
 <div class="main">
-  <form class="example-form" [formGroup]="form">
-  <h2>Form Title</h2>
-    <div class="w100">
-      <div class="w45"><app-input formControlName = 'firstInput'
-                                  [placeholder]="'input label'"
-                                  [hasError] = "form.controls['firstInput'].hasError('required')"
-                                  [submited]="submited"
-      ></app-input></div>
-      <div class="w45"><app-input formControlName = 'secondInput'
-                                  [placeholder]="'input label'"
-                                  [hasError] = "form.controls['secondInput'].hasError('required')"
-                                  [submited]="submited"
-      ></app-input></div>
+  <form class="example-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h2>Form Title</h2>
+    <div class="w100 ">
+      <div class="w45 pl-10">
+        <app-input formControlName='firstInput'
+                   [placeholder]="'input label'"
+                   [hasError]="form.controls['firstInput'].hasError('required')"
+                   [submited]="submited"
+                   [inputClass]="'doubleInput'"
+        ></app-input>
+      </div>
+      <div class="w45">
+        <app-input formControlName='secondInput'
+                   [placeholder]="'input label'"
+                   [hasError]="form.controls['secondInput'].hasError('required')"
+                   [submited]="submited"
+                   [inputClass]="'doubleInput'"
+        ></app-input>
+      </div>
     </div>
     <span class="radio-button-uncheck">
       <mat-hint [ngStyle]="checkRadio ? {visibility: 'visible'}: {visibility: 'hidden'}">
@@ -19,32 +25,52 @@
       </mat-hint>
     </span>
     <div class="w100">
-      <div class="w45">
-        <div><mat-hint>Experience in Angular 10-11</mat-hint></div>
-        <app-radio-button id="firstRadio" formControlName="firstRadioButton" ></app-radio-button>
+      <div class="w45 pl-10">
+        <div>
+          <mat-hint>Experience in Angular 10-11</mat-hint>
+        </div>
+        <app-radio-button id="firstRadio" formControlName="firstRadioButton"></app-radio-button>
       </div>
       <div class="w45">
-        <div><mat-hint>Estimate for the task - 4H</mat-hint></div>
-          <app-radio-button id="secondRadio" formControlName="secondRadioButton"></app-radio-button>
+        <div>
+          <mat-hint>Estimate for the task - 4H</mat-hint>
+        </div>
+        <app-radio-button id="secondRadio" formControlName="secondRadioButton"></app-radio-button>
       </div>
     </div>
-    <div><app-input formControlName = 'thirdInput'
-                    [placeholder]="'input label'"
-                    [hasError] = "form.controls['thirdInput'].hasError('required')"
-                    [submited]="submited"
-    ></app-input></div>
-    <div><app-input formControlName = 'fourthInput'
-                    [placeholder]="'input label'"
-                    [hasError] = "form.controls['fourthInput'].hasError('required')"
-                    [submited]="submited"
-    ></app-input></div>
-    <div><app-input formControlName = 'fifthInput'
-                    [placeholder]="'input label'"
-                    [hasError] = "form.controls['fifthInput'].hasError('required')"
-                    [submited]="submited"
-    ></app-input></div>
-    <div >
-      <button mat-raised-button (click)="onSubmit()" [disabled]="submited" class="next" color="primary">Next</button>
+    <div class="p0 input-width">
+      <app-input formControlName='thirdInput'
+                 [placeholder]="'input label'"
+                 [hasError]="form.controls['thirdInput'].hasError('required')"
+                 [submited]="submited"
+                 [inputClass]="''"
+      ></app-input>
+    </div>
+    <div class="p0 input-width">
+      <app-input formControlName='fourthInput'
+                 [placeholder]="'input label'"
+                 [hasError]="form.controls['fourthInput'].hasError('required')"
+                 [submited]="submited"
+                 [inputClass]="''"
+      ></app-input>
+    </div>
+    <div class="p0 input-width">
+      <app-input formControlName='fifthInput'
+                 [placeholder]="'input label'"
+                 [hasError]="form.controls['fifthInput'].hasError('required')"
+                 [submited]="submited"
+                 [inputClass]="''"
+      ></app-input>
+    </div>
+    <div class="mt20">
+      <button
+        mat-raised-button
+        type="submit"
+        [disabled]="submited"
+        class="next"
+        color="primary"
+      >Next
+      </button>
     </div>
   </form>
 </div>

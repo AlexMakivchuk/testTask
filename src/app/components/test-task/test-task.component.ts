@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -11,7 +11,7 @@ import {Subscription} from 'rxjs';
   templateUrl: './test-task.component.html',
   styleUrls: ['./test-task.component.scss']
 })
-export class TestTaskComponent implements OnInit, OnDestroy, AfterViewInit {
+export class TestTaskComponent implements OnInit, OnDestroy {
   submited: boolean;
   form: FormGroup;
   formActive = true;
@@ -20,9 +20,9 @@ export class TestTaskComponent implements OnInit, OnDestroy, AfterViewInit {
   public statusChanges: Subscription;
 
   constructor(private formBuilder: FormBuilder) {
-
     this.buildForm();
   }
+
   private buildForm(): void {
     this.form = this.formBuilder.group({
       firstInput: ['', [Validators.required]],
@@ -34,8 +34,8 @@ export class TestTaskComponent implements OnInit, OnDestroy, AfterViewInit {
       secondRadioButton: ['', Validators.required]
     });
   }
-  onSubmit(): void{
-    console.log(this.form);
+
+  onSubmit(): void {
     this.formActive = !this.formActive;
     if (this.form.value.firstRadioButton === '' || this.form.value.secondRadioButton === '') {
       this.validateRadioButtons();
@@ -45,29 +45,33 @@ export class TestTaskComponent implements OnInit, OnDestroy, AfterViewInit {
     }
     this.submited = true;
     this.disableAll();
-    setTimeout(() => {
-      this.submited = false;
-    }, 3000);
+    if (this.form.invalid) {
+      setTimeout(() => {
+        this.submited = false;
+      }, 3000);
+    }
   }
+
   ngOnInit(): void {
     this.valueChangesSubscribe();
 
   }
+
   private valueChangesSubscribe(): void {
-    this.valueChangesSubscription =  this.form.valueChanges.subscribe(data => {
+    this.valueChangesSubscription = this.form.valueChanges.subscribe(data => {
       console.log(data);
     });
     this.statusChanges = this.form.statusChanges.subscribe(data => {
     });
   }
+
   ngOnDestroy(): void {
     this.valueChangesSubscription.unsubscribe();
     this.statusChanges.unsubscribe();
   }
+
   validateRadioButtons(): void {
-      this.checkRadio = !this.checkRadio;
-  }
-  ngAfterViewInit(): void {
+    this.checkRadio = !this.checkRadio;
   }
 
   disableAll(): void {

@@ -14,11 +14,15 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
   ]
 })
 export class InputComponent implements OnInit, ControlValueAccessor {
-  constructor() { }
+  constructor() {
+  }
+
   @Input() submited: boolean;
   @Input() hasError;
   @Input() placeholder;
+  @Input() inputClass;
   disabled: boolean;
+
   @Input()
   set value(value: any) {
     this._value = value;
@@ -28,23 +32,31 @@ export class InputComponent implements OnInit, ControlValueAccessor {
   get value(): any {
     return this._value;
   }
+
   // tslint:disable-next-line:variable-name
   _value: any;
-  onChange = (value) => {};
-  onTouched = () => {};
+  onChange = (value) => {
+  };
+  onTouched = () => {
+  };
+
   ngOnInit(): void {
 
   }
-  writeValue(value): void{
+
+  writeValue(value): void {
     this.onChange(value);
   }
+
   registerOnChange(fn: (value: number) => void): void {
     this.onChange = fn;
   }
-  registerOnTouched(fn: () => void): void{
+
+  registerOnTouched(fn: () => void): void {
     this.onTouched = fn;
   }
-  setDisabledState(isDisabled: boolean): void{
+
+  setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
   }
 

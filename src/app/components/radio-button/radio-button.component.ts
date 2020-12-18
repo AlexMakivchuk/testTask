@@ -13,34 +13,40 @@ import {MAT_RADIO_DEFAULT_OPTIONS} from '@angular/material/radio';
   },
     {
       provide: MAT_RADIO_DEFAULT_OPTIONS,
-      useValue: { color: 'accent' },
+      useValue: {color: 'accent'},
     }
-    ]
+  ]
 })
 export class RadioButtonComponent implements OnInit, ControlValueAccessor {
   onChange;
   onTouched;
   disabled: boolean;
   controll = new FormControl();
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit(): void {
     this.controll.valueChanges.subscribe(val => {
-      if (this.onChange){
+      if (this.onChange) {
         this.onChange(val);
       }
     });
   }
-  writeValue(value): void{
+
+  writeValue(value): void {
     this.controll.setValue(value);
   }
+
   registerOnChange(fn: any): void {
     this.onChange = fn;
   }
-  registerOnTouched(fn: any): void{
+
+  registerOnTouched(fn: any): void {
     this.onTouched = fn;
   }
-  setDisabledState(isDisabled: boolean): void{
+
+  setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
   }
 
