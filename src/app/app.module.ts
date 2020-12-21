@@ -10,26 +10,16 @@ import {MatInputModule} from '@angular/material/input';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
-import {RadioButtonComponent} from './components/radio-button/radio-button.component';
-import {InputComponent} from './components/input/input.component';
+import {SharedModule} from './shared/shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TestTaskComponent,
-    RadioButtonComponent,
-    InputComponent
+    TestTaskComponent
   ],
   imports: [
     BrowserModule,
-    NoopAnimationsModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatRadioModule,
-    MatButtonModule,
-    MatIconModule,
-    FormsModule
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

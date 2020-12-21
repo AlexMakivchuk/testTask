@@ -35,10 +35,8 @@ export class InputComponent implements OnInit, ControlValueAccessor {
 
   // tslint:disable-next-line:variable-name
   _value: any;
-  onChange = (value) => {
-  };
-  onTouched = () => {
-  };
+  onChange = (value) => {};
+  onTouched = () => {};
 
   ngOnInit(): void {
 
