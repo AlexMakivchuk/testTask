@@ -19,6 +19,7 @@ export class InputComponent implements OnInit, ControlValueAccessor {
   @Input() hasError;
   @Input() placeholder;
   @Input() submited: boolean;
+
   @Input()
   set value(value: any) {
     this._value = value;
@@ -31,10 +32,13 @@ export class InputComponent implements OnInit, ControlValueAccessor {
 
   constructor() {
   }
+
   // tslint:disable-next-line:variable-name
   _value: any;
-  onChange = (value) => {};
-  onTouched = () => {};
+  onChange = (value) => {
+  };
+  onTouched = () => {
+  };
 
   ngOnInit(): void {
   }

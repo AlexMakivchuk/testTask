@@ -16,23 +16,10 @@ export class TestTaskComponent implements OnInit, OnDestroy {
   form: FormGroup;
   formActive = true;
   submited: boolean;
-  statusChanges: Subscription;
-  valueChangesSubscription: Subscription;
+  subscriptions: Subscription[] = [];
 
   constructor(private formBuilder: FormBuilder) {
     this.buildForm();
-  }
-
-  private buildForm(): void {
-    this.form = this.formBuilder.group({
-      firstInput: ['', [Validators.required]],
-      secondInput: ['', [Validators.required]],
-      thirdInput: ['', [Validators.required]],
-      fourthInput: ['', [Validators.required]],
-      fifthInput: ['', [Validators.required]],
-      firstRadioButton: ['', Validators.required],
-      secondRadioButton: ['', Validators.required]
-    });
   }
 
   onSubmit(): void {
@@ -56,24 +43,19 @@ export class TestTaskComponent implements OnInit, OnDestroy {
     this.valueChangesSubscribe();
   }
 
-  private valueChangesSubscribe(): void {
-    this.valueChangesSubscription = this.form.valueChanges.subscribe(data => {
-      console.log(data);
+  private buildForm(): void {
+    this.form = this.formBuilder.group({
+      firstInput: ['', [Validators.required]],
+      secondInput: ['', [Validators.required]],
+      thirdInput: ['', [Validators.required]],
+      fourthInput: ['', [Validators.required]],
+      fifthInput: ['', [Validators.required]],
+      firstRadioButton: ['', Validators.required],
+      secondRadioButton: ['', Validators.required]
     });
-    this.statusChanges = this.form.statusChanges.subscribe(data => {
-    });
   }
 
-  ngOnDestroy(): void {
-    this.valueChangesSubscription.unsubscribe();
-    this.statusChanges.unsubscribe();
-  }
-
-  validateRadioButtons(): void {
-    this.checkRadio = !this.checkRadio;
-  }
-
-  disableAll(): void {
+  private disableAll(): void {
     Object.keys(this.form.controls).forEach((key) => {
       const controll = this.form.get(key);
       console.log(key);
@@ -81,5 +63,21 @@ export class TestTaskComponent implements OnInit, OnDestroy {
         controll.disable();
       }
     });
+  }
+
+  private validateRadioButtons(): void {
+    this.checkRadio = !this.checkRadio;
+  }
+
+  private valueChangesSubscribe(): void {
+    this.subscriptions.push(this.form.valueChanges.subscribe(data => {
+      console.log(data);
+    }));
+    this.subscriptions.push(this.form.statusChanges.subscribe(data => {
+    }));
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach(sub => sub.unsubscribe());
   }
 }
