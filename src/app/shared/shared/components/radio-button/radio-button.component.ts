@@ -18,10 +18,10 @@ import {MAT_RADIO_DEFAULT_OPTIONS} from '@angular/material/radio';
   ]
 })
 export class RadioButtonComponent implements OnInit, ControlValueAccessor {
-  onChange;
-  onTouched;
   disabled: boolean;
   controll = new FormControl();
+  onChange;
+  onTouched;
 
   constructor() {
   }

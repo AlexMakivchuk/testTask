@@ -12,12 +12,12 @@ import {Subscription} from 'rxjs';
   styleUrls: ['./test-task.component.scss']
 })
 export class TestTaskComponent implements OnInit, OnDestroy {
-  submited: boolean;
+  checkRadio = false;
   form: FormGroup;
   formActive = true;
-  checkRadio = false;
-  public valueChangesSubscription: Subscription;
-  public statusChanges: Subscription;
+  submited: boolean;
+  statusChanges: Subscription;
+  valueChangesSubscription: Subscription;
 
   constructor(private formBuilder: FormBuilder) {
     this.buildForm();
@@ -54,7 +54,6 @@ export class TestTaskComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.valueChangesSubscribe();
-
   }
 
   private valueChangesSubscribe(): void {
@@ -78,7 +77,6 @@ export class TestTaskComponent implements OnInit, OnDestroy {
     Object.keys(this.form.controls).forEach((key) => {
       const controll = this.form.get(key);
       console.log(key);
-      console.log(controll.value);
       if (controll.value) {
         controll.disable();
       }
