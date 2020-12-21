@@ -10,17 +10,6 @@
          matInput
          [disabled]="disabled"
          [(ngModel)]="value" placeholder="">
-  <button
-    [ngStyle]="value ? {visibility: 'visible'}: {visibility: 'hidden'} "
-    type="button"
-    mat-button
-    matSuffix
-    mat-icon-button
-    aria-label="Clear"
-    (click)="value = ''" [disabled]="disabled"
-  >
-    <mat-icon>close</mat-icon>
-  </button>
   <mat-hint class="error" *ngIf="hasError && submited">
     <span>Error, required input</span>
   </mat-hint>

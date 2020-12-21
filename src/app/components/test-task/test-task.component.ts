@@ -4,7 +4,8 @@ import {
   FormGroup,
   Validators
 } from '@angular/forms';
-import {Subscription} from 'rxjs';
+import {fromEvent, of, Subscription, timer} from 'rxjs';
+import {delay, tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-test-task',
@@ -14,33 +15,29 @@ import {Subscription} from 'rxjs';
 export class TestTaskComponent implements OnInit, OnDestroy {
   checkRadio = false;
   form: FormGroup;
-  formActive = true;
-  submited: boolean;
+  submited = false;
   subscriptions: Subscription[] = [];
 
   constructor(private formBuilder: FormBuilder) {
     this.buildForm();
   }
 
-  onSubmit(): void {
-    this.formActive = !this.formActive;
-    if (this.form.value.firstRadioButton === '' || this.form.value.secondRadioButton === '') {
-      this.validateRadioButtons();
-      setTimeout(() => {
-        this.validateRadioButtons();
-      }, 3000);
-    }
-    this.submited = true;
-    this.disableAll();
-    if (this.form.invalid) {
-      setTimeout(() => {
-        this.submited = false;
-      }, 3000);
-    }
-  }
-
   ngOnInit(): void {
     this.valueChangesSubscribe();
+    fromEvent(document.querySelector('#formId'), 'submit').pipe(
+      tap(() => {
+        this.submited = true;
+        this.validateRadioButtons();
+        this.disableAll();
+      }),
+      delay(3000),
+      tap(() => {
+        if (this.form.invalid) {
+          this.submited = false;
+          this.checkRadio = false;
+        }
+      })
+    ).subscribe(() => {});
   }
 
   private buildForm(): void {
@@ -58,7 +55,6 @@ export class TestTaskComponent implements OnInit, OnDestroy {
   private disableAll(): void {
     Object.keys(this.form.controls).forEach((key) => {
       const controll = this.form.get(key);
-      console.log(key);
       if (controll.value) {
         controll.disable();
       }
@@ -66,18 +62,18 @@ export class TestTaskComponent implements OnInit, OnDestroy {
   }
 
   private validateRadioButtons(): void {
-    this.checkRadio = !this.checkRadio;
+    this.checkRadio = this.form.value.firstRadioButton === '' || this.form.value.secondRadioButton === '';
   }
 
   private valueChangesSubscribe(): void {
-    this.subscriptions.push(this.form.valueChanges.subscribe(data => {
-      console.log(data);
-    }));
-    this.subscriptions.push(this.form.statusChanges.subscribe(data => {
-    }));
+    this.subscriptions.push(this.form.valueChanges.subscribe(() => {}));
+    this.subscriptions.push(this.form.statusChanges.subscribe(() => {}));
   }
 
   ngOnDestroy(): void {
     this.subscriptions.forEach(sub => sub.unsubscribe());
+  }
+  clearInput(name): void {
+    this.form.get(name).patchValue('');
   }
 }

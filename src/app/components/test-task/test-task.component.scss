@@ -2,6 +2,26 @@ mat-hint {
   color: #3A4BA6;
   font-size: 12px;
 }
+app-input{
+  float: left;
+}
+.full-width{
+  width: 94%;
+}
+
+.double-input-button{
+  left: -1.1em;
+  top: 1em;
+}
+.alone-input-button{
+  left: -0.4em;
+  top: 1em;
+}
+app-clear-button{
+  float: left;
+  position: relative;
+  width: 10px;
+}
 
 .main {
   text-align: center;
@@ -26,6 +46,7 @@ mat-hint {
   width: 47%;
   float: left;
   text-align: left;
+  display: inline-block;
 }
 
 .w100 {
@@ -63,6 +84,7 @@ mat-hint {
 
 .input-width {
   width: 425px;
+  display: inline-block;
 }
 
 

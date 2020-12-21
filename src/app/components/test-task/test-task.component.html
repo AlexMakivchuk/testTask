@@ -1,22 +1,36 @@
 <div class="main">
-  <form class="example-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <form class="example-form" id="formId" [formGroup]="form">
     <h2>Form Title</h2>
     <div class="w100 ">
       <div class="w45 pl-10">
         <app-input formControlName='firstInput'
                    [placeholder]="'input label'"
+                   [value]="form.controls['firstInput'].value"
                    [hasError]="form.controls['firstInput'].hasError('required')"
                    [submited]="submited"
                    [inputClass]="'doubleInput'"
         ></app-input>
+        <app-clear-button [ngStyle]="form.get('firstInput').value ? {visibility: 'visible'}: {visibility: 'hidden'} "
+                          class="double-input-button"
+                          [disabled]="form.get('firstInput').status === 'DISABLED'"
+                          [name]="'firstInput'"
+                          (clearString)="clearInput($event)"
+        ></app-clear-button>
       </div>
       <div class="w45">
         <app-input formControlName='secondInput'
                    [placeholder]="'input label'"
+                   [value]="form.controls['secondInput'].value"
                    [hasError]="form.controls['secondInput'].hasError('required')"
                    [submited]="submited"
                    [inputClass]="'doubleInput'"
         ></app-input>
+        <app-clear-button [ngStyle]="form.get('secondInput').value ? {visibility: 'visible'}: {visibility: 'hidden'} "
+                          class="double-input-button"
+                          [disabled]="form.get('secondInput').status === 'DISABLED'"
+                          [name]="'secondInput'"
+                          (clearString)="clearInput($event)"
+        ></app-clear-button>
       </div>
     </div>
     <span class="radio-button-uncheck">
@@ -40,27 +54,51 @@
     </div>
     <div class="p0 input-width">
       <app-input formControlName='thirdInput'
+                 class="full-width"
                  [placeholder]="'input label'"
+                 [value]="form.controls['thirdInput'].value"
                  [hasError]="form.controls['thirdInput'].hasError('required')"
                  [submited]="submited"
                  [inputClass]="''"
       ></app-input>
+      <app-clear-button [ngStyle]="form.get('thirdInput').value ? {visibility: 'visible'}: {visibility: 'hidden'} "
+                        class="alone-input-button"
+                        [disabled]="form.get('thirdInput').status === 'DISABLED'"
+                        [name]="'thirdInput'"
+                        (clearString)="clearInput($event)"
+      ></app-clear-button>
     </div>
     <div class="p0 input-width">
       <app-input formControlName='fourthInput'
+                 class="full-width"
                  [placeholder]="'input label'"
+                 [value]="form.controls['fourthInput'].value"
                  [hasError]="form.controls['fourthInput'].hasError('required')"
                  [submited]="submited"
                  [inputClass]="''"
       ></app-input>
+      <app-clear-button [ngStyle]="form.get('fourthInput').value ? {visibility: 'visible'}: {visibility: 'hidden'} "
+                        class="alone-input-button"
+                        [disabled]="form.get('fourthInput').status === 'DISABLED'"
+                        [name]="'fourthInput'"
+                        (clearString)="clearInput($event)"
+      ></app-clear-button>
     </div>
     <div class="p0 input-width">
       <app-input formControlName='fifthInput'
+                 class="full-width"
                  [placeholder]="'input label'"
+                 [value]="form.controls['fifthInput'].value"
                  [hasError]="form.controls['fifthInput'].hasError('required')"
                  [submited]="submited"
                  [inputClass]="''"
       ></app-input>
+      <app-clear-button [ngStyle]="form.get('fifthInput').value ? {visibility: 'visible'}: {visibility: 'hidden'} "
+                        class="alone-input-button"
+                        [disabled]="form.get('fifthInput').status === 'DISABLED'"
+                        [name]="'fifthInput'"
+                        (clearString)="clearInput($event)"
+      ></app-clear-button>
     </div>
     <div class="mt20">
       <button

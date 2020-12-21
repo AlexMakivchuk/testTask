@@ -9,13 +9,15 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { ClearButtonComponent } from './components/clear-button/clear-button.component';
 
 
 
 @NgModule({
   declarations: [
     InputComponent,
-    RadioButtonComponent
+    RadioButtonComponent,
+    ClearButtonComponent
   ],
   exports: [
     InputComponent,
@@ -28,6 +30,7 @@ import {NoopAnimationsModule} from '@angular/platform-browser/animations';
     FormsModule,
     NoopAnimationsModule,
     ReactiveFormsModule,
+    ClearButtonComponent,
   ],
   imports: [
     CommonModule,
