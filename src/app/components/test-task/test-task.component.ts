@@ -6,6 +6,7 @@ import {
 } from '@angular/forms';
 import {fromEvent, of, Subscription, timer} from 'rxjs';
 import {delay, tap} from 'rxjs/operators';
+import {ControlNames} from '../../shared/Enums/control-names.enum';
 
 @Component({
   selector: 'app-test-task',
@@ -14,10 +15,10 @@ import {delay, tap} from 'rxjs/operators';
 })
 export class TestTaskComponent implements OnInit, OnDestroy {
   checkRadio = false;
+  controlNames = ControlNames;
   form: FormGroup;
   submited = false;
   subscriptions: Subscription[] = [];
-
   constructor(private formBuilder: FormBuilder) {
     this.buildForm();
   }

@@ -3,33 +3,31 @@
     <h2>Form Title</h2>
     <div class="w100 ">
       <div class="w45 pl-10">
-        <app-input formControlName='firstInput'
+        <app-input [formControlName]="controlNames.FirstInput"
                    [placeholder]="'input label'"
-                   [value]="form.controls['firstInput'].value"
-                   [hasError]="form.controls['firstInput'].hasError('required')"
+                   [value]="form.controls[controlNames.FirstInput].value"
+                   [hasError]="form.controls[controlNames.FirstInput].hasError('required')"
                    [submited]="submited"
                    [inputClass]="'doubleInput'"
         ></app-input>
-        <app-clear-button [ngStyle]="form.get('firstInput').value ? {visibility: 'visible'}: {visibility: 'hidden'} "
+        <app-clear-button [ngStyle]="form.get(controlNames.FirstInput).value ? {visibility: 'visible'}: {visibility: 'hidden'} "
                           class="double-input-button"
-                          [disabled]="form.get('firstInput').status === 'DISABLED'"
-                          [name]="'firstInput'"
-                          (clearString)="clearInput($event)"
+                          [disabled]="form.get(controlNames.FirstInput).status === 'DISABLED'"
+                          (clearString)="clearInput(controlNames.FirstInput)"
         ></app-clear-button>
       </div>
       <div class="w45">
-        <app-input formControlName='secondInput'
+        <app-input [formControlName]="controlNames.SecondInput"
                    [placeholder]="'input label'"
-                   [value]="form.controls['secondInput'].value"
-                   [hasError]="form.controls['secondInput'].hasError('required')"
+                   [value]="form.controls[controlNames.SecondInput].value"
+                   [hasError]="form.controls[controlNames.SecondInput].hasError('required')"
                    [submited]="submited"
                    [inputClass]="'doubleInput'"
         ></app-input>
-        <app-clear-button [ngStyle]="form.get('secondInput').value ? {visibility: 'visible'}: {visibility: 'hidden'} "
+        <app-clear-button [ngStyle]="form.get(controlNames.SecondInput).value ? {visibility: 'visible'}: {visibility: 'hidden'} "
                           class="double-input-button"
-                          [disabled]="form.get('secondInput').status === 'DISABLED'"
-                          [name]="'secondInput'"
-                          (clearString)="clearInput($event)"
+                          [disabled]="form.get(controlNames.SecondInput).status === 'DISABLED'"
+                          (clearString)="clearInput(controlNames.SecondInput)"
         ></app-clear-button>
       </div>
     </div>
@@ -53,51 +51,48 @@
       </div>
     </div>
     <div class="p0 input-width">
-      <app-input formControlName='thirdInput'
+      <app-input [formControlName]="controlNames.ThirdInput"
                  class="full-width"
                  [placeholder]="'input label'"
-                 [value]="form.controls['thirdInput'].value"
-                 [hasError]="form.controls['thirdInput'].hasError('required')"
+                 [value]="form.controls[controlNames.ThirdInput].value"
+                 [hasError]="form.controls[controlNames.ThirdInput].hasError('required')"
                  [submited]="submited"
                  [inputClass]="''"
       ></app-input>
-      <app-clear-button [ngStyle]="form.get('thirdInput').value ? {visibility: 'visible'}: {visibility: 'hidden'} "
+      <app-clear-button [ngStyle]="form.get(controlNames.ThirdInput).value ? {visibility: 'visible'}: {visibility: 'hidden'} "
                         class="alone-input-button"
-                        [disabled]="form.get('thirdInput').status === 'DISABLED'"
-                        [name]="'thirdInput'"
-                        (clearString)="clearInput($event)"
+                        [disabled]="form.get(controlNames.ThirdInput).status === 'DISABLED'"
+                        (clearString)="clearInput(controlNames.ThirdInput)"
       ></app-clear-button>
     </div>
     <div class="p0 input-width">
-      <app-input formControlName='fourthInput'
+      <app-input [formControlName]="controlNames.FourthInput"
                  class="full-width"
                  [placeholder]="'input label'"
-                 [value]="form.controls['fourthInput'].value"
-                 [hasError]="form.controls['fourthInput'].hasError('required')"
+                 [value]="form.controls[controlNames.FourthInput].value"
+                 [hasError]="form.controls[controlNames.FourthInput].hasError('required')"
                  [submited]="submited"
                  [inputClass]="''"
       ></app-input>
-      <app-clear-button [ngStyle]="form.get('fourthInput').value ? {visibility: 'visible'}: {visibility: 'hidden'} "
+      <app-clear-button [ngStyle]="form.get(controlNames.FourthInput).value ? {visibility: 'visible'}: {visibility: 'hidden'} "
                         class="alone-input-button"
-                        [disabled]="form.get('fourthInput').status === 'DISABLED'"
-                        [name]="'fourthInput'"
-                        (clearString)="clearInput($event)"
+                        [disabled]="form.get(controlNames.FourthInput).status === 'DISABLED'"
+                        (clearString)="clearInput(controlNames.FourthInput)"
       ></app-clear-button>
     </div>
     <div class="p0 input-width">
-      <app-input formControlName='fifthInput'
+      <app-input [formControlName]="controlNames.FifthInput"
                  class="full-width"
                  [placeholder]="'input label'"
-                 [value]="form.controls['fifthInput'].value"
-                 [hasError]="form.controls['fifthInput'].hasError('required')"
+                 [value]="form.controls[controlNames.FifthInput].value"
+                 [hasError]="form.controls[controlNames.FifthInput].hasError('required')"
                  [submited]="submited"
                  [inputClass]="''"
       ></app-input>
-      <app-clear-button [ngStyle]="form.get('fifthInput').value ? {visibility: 'visible'}: {visibility: 'hidden'} "
+      <app-clear-button [ngStyle]="form.get(controlNames.FifthInput).value ? {visibility: 'visible'}: {visibility: 'hidden'} "
                         class="alone-input-button"
-                        [disabled]="form.get('fifthInput').status === 'DISABLED'"
-                        [name]="'fifthInput'"
-                        (clearString)="clearInput($event)"
+                        [disabled]="form.get(controlNames.FifthInput).status === 'DISABLED'"
+                        (clearString)="clearInput(controlNames.FifthInput)"
       ></app-clear-button>
     </div>
     <div class="mt20">

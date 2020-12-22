@@ -7,12 +7,11 @@ import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 })
 export class ClearButtonComponent implements OnInit {
   @Input() disabled: boolean;
-  @Input() name: string;
   @Output() clearString = new EventEmitter<string>();
   constructor() { }
 
-  clearInput(value: string): void {
-    this.clearString.emit(value);
+  clearInput(): void {
+    this.clearString.emit();
   }
 
   ngOnInit(): void {
